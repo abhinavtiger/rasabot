@@ -4,10 +4,17 @@ stories:
 - story: greet and subscribe
   steps:
     - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_happy
+    - action: utter_welcome
+    - intent: register
     - action: form_get_details
     - active_loop: form_get_details
     - active_loop: null
-    - action: utter_acknowledge_info
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_details_thanks
 
 # - story: user supplies customer info
 #   steps:

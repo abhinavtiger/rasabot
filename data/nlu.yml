@@ -91,6 +91,20 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: register
+  examples: |
+    - do u want to get register?
+    - click the button to register
+    - rigister here?
+    - registeration?
+
+- intent: not_interest
+  examples: |
+    - not interested
+    - no
+    - nothing
+    - none
+
 - intent: supply_contact_info
   examples: |
     - my name is [abhinav](name)
@@ -102,14 +116,8 @@ nlu:
     - my number is [8888888888](number)
     - number is [1234567890](number)
     - number: [9999999999](number)
-- intent: supply_empid
+- intent: supply_reason
   examples: |
-    - my empis is [1234](empid)
-    - empid is [4567](empid)
-    - empid: [7890](empid)
-
-- intent: supply_skill
-  examples: |
-    - my skill is [java](skill)
-    - skill is [python](skill)
-    - skill: [scala](skill)
+    - because of [good education](reason)
+    - the [placement] is good(reason)
+    - because of [placement](reason)
