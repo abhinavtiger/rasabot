@@ -93,10 +93,11 @@ nlu:
 
 - intent: register
   examples: |
-    - do u want to get register?
-    - click the button to register
-    - rigister here?
-    - registeration?
+    - want to get register
+    - i want to register
+    - register me
+    - registeration
+
 
 - intent: not_interest
   examples: |
@@ -121,3 +122,7 @@ nlu:
     - because of [good education](reason)
     - the [placement] is good(reason)
     - because of [placement](reason)
+
+- regex: number
+  examples: |
+    -\d{10,11}

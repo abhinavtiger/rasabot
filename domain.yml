@@ -27,76 +27,40 @@ slots:
     type: any
   reason:
     type: any
-  requested_slot:
-    type: unfeaturized
-    influence_conversation: false
 
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-    buttons:
-    - title: "Great"
-      payload: "/mood_great"
-    - title: "Sad"
-      payload: "/mood_unhappy"
-
-  utter_welcome:
-  - text: "Welcome To Registeration Portal"
-    buttons:
-    - title: "Register"
-      payload: "/register"
-    - title: "Not Interested"
-      payload: "/not_interest"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
   utter_happy:
   - text: "Great, carry on!"
 
   utter_goodbye:
   - text: "Bye"
 
-
-  utter_ask_name:
-  - text: Hello! Could you please provide your name?
-
-  utter_ask_number:
-  - text: Could you please provide your contact number?
-
-  utter_ask_reason:
-  - text: Could you please provide the reason for joining this institution?
-
-  utter_details_thanks:
-  - text: "Thanks for providing the given details \nName: {name},\nMobile Number: {number},\nReason:{reason}"
-
-  utter_acknowledge_info:
-  - text: Thanks for provided your info!
-
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
+actions:
+- action_ask_greet
+- action_welcome
+- validate_form_get_details
+- action_ask_name
+- action_ask_number
+- action_ask_reason
+- action_submit_registration_form
 
 
 forms:
   form_get_details:
-    name:
-      - type: from_entity
-        entity: name
-    number:
-      - type: from_entity
-        entity: number
-    reason:
-      - type: from_entity
-        entity: reason   
-
-
-
+    required_slots:
+      name:
+        - type: from_entity
+          entity: name
+      number:
+        - type: from_entity
+          entity: number
+      reason:
+        - type: from_entity
+          entity: reason   
 
 session_config:
   session_expiration_time: 60

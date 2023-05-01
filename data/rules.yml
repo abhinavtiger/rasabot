@@ -12,6 +12,35 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+# - rule: Ask to greet
+#   steps:
+#   - intent: greet
+#   - action: action_ask_greet
+#   wait_for_user_input: false
+
+
+# - rule: Ask to register
+#   steps:
+#     - intent: register
+#     - action: action_welcome
+
+- rule: Activate Form
+  steps:
+  - intent: register
+  - action: action_welcome
+  - action: form_get_details
+  - active_loop: form_get_details
+
+- rule: Register Form
+  condition:
+  - active_loop: form_get_details
+  steps:
+  - action: form_get_details
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit_registration_form
+
 # - rule: Activate form
 #   steps:
 #   # - intent: greet
